@@ -10,6 +10,7 @@ let DataContacts = [
 
 app.get('/contacts', (req, res) => {
     res.json(DataContacts)
+    console.log("test");
 })
 
 module.exports = app
