@@ -22,5 +22,10 @@ app.post('/contacts', (req, res) => {
     DataContacts.push(NewContact)
     res.status(201).json(NewContact)
 })
-
+app.put('/contacts/:ID', (req, res) => {
+    let contact = req.body
+    let ID = req.params.ID
+    DataContacts[ID] = contact
+    res.status(200).json()
+})
 module.exports = app
