@@ -10,7 +10,17 @@ let DataContacts = [
 
 app.get('/contacts', (req, res) => {
     res.json(DataContacts)
-    console.log("test");
+})
+app.get('/contacts/:ID', (req, res) => {
+    let ID = req.params.ID
+    res.json(DataContacts[ID])
+})
+
+app.post('/contacts', (req, res) => {
+    let NewContact = req.body
+    NewContact.ID = DataContacts.length
+    DataContacts.push(NewContact)
+    res.status(201).json(NewContact)
 })
 
 module.exports = app
