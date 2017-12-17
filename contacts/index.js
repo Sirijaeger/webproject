@@ -28,4 +28,9 @@ app.put('/contacts/:ID', (req, res) => {
     DataContacts[ID] = contact
     res.status(200).json()
 })
+app.delete('/contacts/:ID', (req, res) => {
+    let ID = req.params.ID
+    DataContacts.splice(ID, 1)
+    res.status(204).json()
+})
 module.exports = app
